@@ -12,7 +12,7 @@
             <div>
                 <p class="eyebrow">前端 + API + Google Sheets</p>
                 <h1>溫度資料回報系統</h1>
-                <p class="intro">輸入城市後，系統會自動呼叫天氣 API 取得溫度，填妥資料後即可提交到 Google Apps Script，並寫入 Google 試算表。</p>
+                <p class="intro">輸入城市後，系統會自動呼叫天氣 API 取得溫度，登入 Google 後即可提交到 Google Apps Script，並寫入 Google 試算表。</p>
             </div>
             <div class="status-card">
                 <p>連線狀態</p>
@@ -21,6 +21,18 @@
         </header>
 
         <section class="panel form-panel">
+            <div class="login-card">
+                <div>
+                    <p class="eyebrow">Google 登入</p>
+                    <h2>先用 Google 帳號登入</h2>
+                    <p class="intro">登入後系統會自動帶入你的姓名與 Email，提交資料時也會一併記錄。</p>
+                </div>
+                <div class="login-actions">
+                    <div id="googleLoginBtn"></div>
+                    <button id="signOutBtn" class="ghost hidden" type="button">登出</button>
+                </div>
+            </div>
+
             <form id="reportForm" class="form-grid">
                 <div class="field field-wide">
                     <label for="cityInput">城市名稱</label>
@@ -64,6 +76,7 @@
         </section>
     </main>
 
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="script.js"></script>
 </body>
 </html>
