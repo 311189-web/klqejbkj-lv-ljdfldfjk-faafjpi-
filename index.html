@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>溫度資料回報系統</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="panel hero-panel">
+            <div>
+                <p class="eyebrow">前端 + API + Google Sheets</p>
+                <h1>溫度資料回報系統</h1>
+                <p class="intro">輸入城市後，系統會自動呼叫天氣 API 取得溫度，填妥資料後即可提交到 Google Apps Script，並寫入 Google 試算表。</p>
+            </div>
+            <div class="status-card">
+                <p>連線狀態</p>
+                <strong id="statusBadge">待連線</strong>
+            </div>
+        </header>
+
+        <section class="panel form-panel">
+            <form id="reportForm" class="form-grid">
+                <div class="field field-wide">
+                    <label for="cityInput">城市名稱</label>
+                    <div class="inline-action">
+                        <input id="cityInput" name="city" type="text" placeholder="例如：台北" required>
+                        <button id="autoFillBtn" type="button">自動填入</button>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="locationInput">地點</label>
+                    <input id="locationInput" name="location" type="text" placeholder="自動填入地點" required>
+                </div>
+
+                <div class="field">
+                    <label for="temperatureInput">溫度 (°C)</label>
+                    <input id="temperatureInput" name="temperature" type="number" step="0.1" placeholder="例如：28.5" required>
+                </div>
+
+                <div class="field">
+                    <label for="nameInput">姓名</label>
+                    <input id="nameInput" name="name" type="text" placeholder="請輸入姓名" required>
+                </div>
+
+                <div class="field">
+                    <label for="emailInput">電子郵件</label>
+                    <input id="emailInput" name="email" type="email" placeholder="name@example.com" required>
+                </div>
+
+                <div class="field field-wide">
+                    <label for="noteInput">備註</label>
+                    <textarea id="noteInput" name="note" rows="4" placeholder="例如：今日氣候狀況"></textarea>
+                </div>
+
+                <div class="actions field-wide">
+                    <button id="submitBtn" class="accent" type="submit">送出資料</button>
+                </div>
+            </form>
+
+            <p id="feedback" class="feedback" aria-live="polite">請輸入城市後點選「自動填入」，即可匯入溫度資料。</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
